@@ -7,7 +7,7 @@ from setuptools import setup
 # string in below ...
 
 setup(
-    name = "MultiPserve",
+    name = "multipserve",
     version = "0.0.0",
     author = "Mario Idival",
     author_email = "marioidival@gmail.com",
@@ -15,9 +15,9 @@ setup(
     license = "BSD",
     keywords = "multipserve pyramid threading",
     url = "https://github.com/marioidival/multi_pserve",
-    packages=['multi_pserve'],
+    packages=['multipserve'],
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Topic :: Utilities",
         "License :: OSI Approved :: BSD License",
     ],
