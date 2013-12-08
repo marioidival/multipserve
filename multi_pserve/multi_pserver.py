@@ -32,7 +32,8 @@ class MultiPserve(Thread):
         paste_file = return_pastfile(self.dir_project)
         os.system('pserve '+ paste_file +' --reload --daemon --pid '+ self.dir_project +'.pid')
 
-if __name__ == '__main__':
-    for arg in sys.argv[1:]:
+
+def main(args):
+    for arg in args[1:]:
         thread = MultiPserve(arg)
         thread.run()
