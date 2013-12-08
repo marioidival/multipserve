@@ -5,7 +5,8 @@ Little script for you use in many pservers Pyramid
 
 
 ##How to
-Install:
+Install
+
     pip install multipserve
 
 First, you can use the python script in your root directory application
