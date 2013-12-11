@@ -8,7 +8,7 @@ from setuptools import setup
 
 setup(
     name = "multipserve",
-    version = "0.0.2",
+    version = "0.0.4",
     author = "Mario Idival",
     author_email = "marioidival@gmail.com",
     description = ("Script for using with multiples applications Pyramid"),

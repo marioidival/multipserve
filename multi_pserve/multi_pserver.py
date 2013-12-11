@@ -1,14 +1,13 @@
 from threading import Thread
 
-import os
 import sys
+import subprocess
 
 exclude_directories = ['.hg', '.git']
 
 def return_pastfile(directory):
     
     current_directory = os.path.abspath(directory)
-
     files_of_directory = os.listdir(current_directory)
 
     for file in files_of_directory:
@@ -30,10 +29,13 @@ class MultiPserve(Thread):
 
     def run(self):
         paste_file = return_pastfile(self.dir_project)
-        os.system('pserve '+ paste_file +' --reload --daemon --pid '+ self.dir_project +'.pid')
+        log_file = '--log-file=' + self.dir_project +'.log'
+        pid_file = '--pid-file=' + self.dir_project +'.pid'
+        subprocess.call(['pserve', paste_file, '--daemon', log_file, pid_file])
 
 
 def main(args):
+
     for arg in args[1:]:
         thread = MultiPserve(arg)
-        thread.run()
+        thread.start()
