@@ -1,5 +1,6 @@
 from threading import Thread
 
+import os
 import sys
 import subprocess
 
@@ -20,6 +21,7 @@ def return_pastfile(directory):
         else:
             if current_file not in exclude_directories:
                 return_pastfile(current_file) 
+
 
 class MultiPserve(Thread):
 
