@@ -1,8 +1,8 @@
 from threading import Thread
+from subprocess import Popen, PIPE
 
 import os
 import sys
-import subprocess
 
 exclude_directories = ['.hg', '.git']
 
@@ -33,7 +33,7 @@ class MultiPserve(Thread):
         paste_file = return_pastfile(self.dir_project)
         log_file = '--log-file=' + self.dir_project +'.log'
         pid_file = '--pid-file=' + self.dir_project +'.pid'
-        subprocess.call(['pserve', paste_file, '--daemon', log_file, pid_file])
+        Popen(['pserve', paste_file, '--reload', log_file, pid_file], stdout=PIPE)
 
 
 def main(args):
