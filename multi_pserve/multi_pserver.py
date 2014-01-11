@@ -2,7 +2,6 @@ from threading import Thread
 from subprocess import Popen, PIPE
 
 import os
-import sys
 
 exclude_directories = ['.hg', '.git']
 
@@ -11,8 +10,8 @@ def return_pastfile(directory):
     current_directory = os.path.abspath(directory)
     files_of_directory = os.listdir(current_directory)
 
-    for file in files_of_directory:
-        current_file = os.path.join(current_directory, file)
+    for each_file in files_of_directory:
+        current_file = os.path.join(current_directory, each_file)
         if os.path.isfile(current_file):
 
             if current_file.endswith('.ini'):
