@@ -10,7 +10,7 @@ with open(os.path.join(root, 'README.txt')) as f:
 
 setup(
     name = "multipserve",
-    version = "0.1.1",
+    version = "1.0.0",
     author = "Mario Idival",
     author_email = "marioidival@gmail.com",
     description = ("Script for using with multiples applications Pyramid"),
