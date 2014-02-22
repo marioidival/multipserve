@@ -39,5 +39,5 @@ Look `issues <https://github.com/marioidival/multi_pserve/issues/>`_  for more d
 
 1. All application now are loaded in --reload mode
 #. ``multipserver`` create .log and .pid file for each application
-2. multipserver work with arguments
-#  ``--apps`` or ``--kill``
+#. multipserver work with arguments
+#.  ``--apps`` or ``--kill``

@@ -1,7 +1,6 @@
 from subprocess import Popen, PIPE, STDOUT
 
 import os
-import ctypes
 
 exclude_directories = ['.hg', '.git']
 dev_files = ('dev.ini', 'development.ini')
