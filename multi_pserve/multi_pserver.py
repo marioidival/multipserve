@@ -1,9 +1,11 @@
-from threading import Thread
-from subprocess import Popen, PIPE
+from subprocess import Popen, PIPE, STDOUT
 
 import os
+import ctypes
 
 exclude_directories = ['.hg', '.git']
+dev_files = ('dev.ini', 'development.ini')
+kill = os.kill
 
 def return_pastfile(directory):
     
@@ -15,28 +17,57 @@ def return_pastfile(directory):
         if os.path.isfile(current_file):
 
             if current_file.endswith('.ini'):
-                if current_file.endswith('dev.ini') or current_file.endswith('development.ini'):
-                    return current_file 
+                if current_file.endswith(dev_files):
+                    return current_file
         else:
             if current_file not in exclude_directories:
                 return_pastfile(current_file) 
 
 
-class MultiPserve(Thread):
+class MultiPserve(object):
 
     def __init__(self, dir_project):
-        Thread.__init__(self)
         self.dir_project = dir_project
+        self.projects = self.find_start_files()
 
-    def run(self):
-        paste_file = return_pastfile(self.dir_project)
-        log_file = '--log-file=' + self.dir_project +'.log'
-        pid_file = '--pid-file=' + self.dir_project +'.pid'
-        Popen(['pserve', paste_file, '--reload', log_file, pid_file], stdout=PIPE)
+    def find_start_files(self):
+        '''Return dict with name application and .ini respective'''
+        return_dict = {}
+        for directory in self.dir_project:
+            return_dict[directory] = return_pastfile(directory)
 
+        return return_dict
 
-def main(args):
+    def load_server(self, dir_app):
+        '''Load applications as subprocess'''
+        log_file = '--log-file=' + dir_app +'.log'
+        pid_file = '--pid-file=' + dir_app +'.pid'
+        Popen(['pserve', self.projects[dir_app], '--reload', log_file, pid_file],
+                stdout=PIPE, stderr=STDOUT)
+    
+    def kill_servers(self, apps):
+        '''the name says '''
+        import signal
+        for app in apps:
+            pid = self.find_read_pid_file(app)
+            if pid:
+                kill(pid, signal.SIGTERM)
+                print 'kill {0} with pid {1}'.format(app, pid)
+            else:
+                print 'pid file of {0} not found'.format(app)
+            
 
-    for arg in args[1:]:
-        thread = MultiPserve(arg)
-        thread.start()
+    def find_read_pid_file(self, app_name):
+        '''search pid file and get content'''
+        pid_file = '{0}.pid'.format(app_name)
+
+        if not os.path.exists(pid_file):
+            return
+        with open(pid_file) as f:
+            content = f.read().strip()
+        try:
+            pid_in_file = int(content)
+        except ValueError:
+            pid_in_file = None
+
+        return pid_in_file
