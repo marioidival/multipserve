@@ -39,10 +39,15 @@ class MultiPserve(object):
 
     def load_server(self, dir_app):
         '''Load applications as subprocess'''
-        log_file = '--log-file=' + dir_app +'.log'
-        pid_file = '--pid-file=' + dir_app +'.pid'
-        Popen(['pserve', self.projects[dir_app], '--reload', log_file, pid_file],
-                stdout=PIPE, stderr=STDOUT)
+        try:
+          log_file = '--log-file=' + dir_app +'.log'
+          pid_file = '--pid-file=' + dir_app +'.pid'
+          Popen(['pserve', self.projects[dir_app], '--reload', log_file, pid_file],
+                  stdout=PIPE, stderr=STDOUT)
+        except Exception as e:
+          print e
+        else:
+          print 'init server {0}'.format(dir_app)
     
     def kill_servers(self, apps):
         '''the name says '''
