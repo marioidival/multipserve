@@ -16,7 +16,7 @@ def return_pastfile(directory):
         if os.path.isfile(current_file):
 
             if current_file.endswith('.ini'):
-                if current_file.endswith(dev_files):
+                if current_file.endswith('dev.ini') or current_file.endswith('development.ini'):
                     return current_file
         else:
             if current_file not in exclude_directories:
