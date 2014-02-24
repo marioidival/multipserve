@@ -10,7 +10,7 @@ with open(os.path.join(root, 'README.txt')) as f:
 
 setup(
     name = "multipserve",
-    version = "1.0",
+    version = "1.0.2",
     author = "Mario Idival",
     author_email = "marioidival@gmail.com",
     description = ("Script for using with multiples applications Pyramid"),
@@ -23,5 +23,8 @@ setup(
     classifiers=[
         "Development Status :: 4 - Beta",
         "Topic :: Utilities",
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+        "Framework :: Pyramid",
+        "Operating System :: Unix",
     ],
 )
