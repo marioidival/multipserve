@@ -6,8 +6,8 @@ exclude_directories = ['.hg', '.git']
 dev_files = ('dev.ini', 'development.ini')
 kill = os.kill
 
+
 def return_pastfile(directory):
-    
     current_directory = os.path.abspath(directory)
     files_of_directory = os.listdir(current_directory)
 
@@ -20,8 +20,9 @@ def return_pastfile(directory):
                 if pastefile in dev_files:
                     return current_file
         else:
+
             if current_file not in exclude_directories:
-                return_pastfile(current_file) 
+                return_pastfile(current_file)
 
 
 class MultiPserve(object):
@@ -41,15 +42,16 @@ class MultiPserve(object):
     def load_server(self, dir_app):
         '''Load applications as subprocess'''
         try:
-            log_file = '--log-file=' + dir_app +'.log'
-            pid_file = '--pid-file=' + dir_app +'.pid'
-            Popen(['pserve', self.projects[dir_app], '--reload', log_file, pid_file],
-                  stdout=PIPE, stderr=STDOUT)
+            log_file = '--log-file=' + dir_app + '.log'
+            pid_file = '--pid-file=' + dir_app + '.pid'
+            Popen(['pserve', self.projects[dir_app], '--reload',
+                  log_file, pid_file], stdout=PIPE, stderr=STDOUT)
+
         except Exception as e:
             print e
         else:
             print 'init server {0}'.format(dir_app)
-    
+
     def kill_servers(self, apps):
         '''the name says '''
         import signal
@@ -60,7 +62,6 @@ class MultiPserve(object):
                 print 'kill {0} with pid {1}'.format(app, pid)
             else:
                 print 'pid file of {0} not found'.format(app)
-            
 
     def find_read_pid_file(self, app_name):
         '''search pid file and get content'''
