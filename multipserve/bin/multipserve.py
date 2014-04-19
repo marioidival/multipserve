@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from multi_pserve import multi_pserver as mps
+from multipserve import core_mps as mps
 
 import argparse
 import sys
