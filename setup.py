@@ -10,7 +10,7 @@ with open(os.path.join(root, 'README.txt')) as f:
 
 setup(
     name = "multipserve",
-    version = "1.0.2",
+    version = "1.0.3",
     author = "Mario Idival",
     author_email = "marioidival@gmail.com",
     description = ("Script for using with multiples applications Pyramid"),
@@ -18,7 +18,7 @@ setup(
     license = "BSD",
     keywords = "multipserve pyramid threading",
     url = "https://github.com/marioidival/multi_pserve",
-    scripts = ['multi_pserve/bin/multipserve.py'],
+    scripts = ['multi_pserve/bin/multipserver.py'],
     packages=['multi_pserve'],
     classifiers=[
         "Development Status :: 4 - Beta",
