@@ -18,8 +18,8 @@ setup(
     license = "BSD",
     keywords = "multipserve pyramid threading",
     url = "https://github.com/marioidival/multi_pserve",
-    scripts = ['multi_pserve/bin/multipserver.py'],
-    packages=['multi_pserve'],
+    scripts = ['multipserve/bin/multipserver.py'],
+    packages=['multipserve'],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Topic :: Utilities",
