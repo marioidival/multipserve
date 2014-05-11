@@ -1,6 +1,7 @@
 MultiPserve
 ===========
 
+!https://travis-ci.org/marioidival/multipserve.svg?branch=master!:https://travis-ci.org/marioidival/multipserve
 
 How To
 ------
