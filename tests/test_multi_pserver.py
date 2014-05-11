@@ -18,7 +18,6 @@ class MultiPserverTest(unittest.TestCase):
                          mps.return_pastfile(self.mockapp_dir))
 
     def test_MultiPserve(self):
-        print self.test_dir
         mpobj = mps.MultiPserve([self.mockapp_dir])
         self.assertTrue(len(mpobj.projects))
         self.assertIn(self.mockapp_dir,mpobj.projects)
