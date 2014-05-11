@@ -9,6 +9,7 @@ class MultiPserverTest(unittest.TestCase):
         self.mockapp_dir = os.path.join(self.test_dir, 'mockapp')
         self.mockapp_dev_file = os.path.join(self.mockapp_dir,
                                              'development.ini')
+        self.mpobj = mps.MultiPserve([self.mockapp_dir])
 
     def test_search_for_pastfile(self):
         self.assertTrue(os.path.isfile(self.mockapp_dev_file))
@@ -17,11 +18,12 @@ class MultiPserverTest(unittest.TestCase):
         self.assertEqual(self.mockapp_dev_file,
                          mps.return_pastfile(self.mockapp_dir))
 
-    def test_MultiPserve(self):
-        mpobj = mps.MultiPserve([self.mockapp_dir])
-        self.assertTrue(len(mpobj.projects))
-        self.assertIn(self.mockapp_dir,mpobj.projects)
+    def test_count_projects(self):
+        self.assertTrue(len(self.mpobj.projects))
+
+    def test_mockdir_in_project(self):
+        self.assertIn(self.mockapp_dir, self.mpobj.projects)
+
+    def test_mock_pastfile_is_returned_by_mps(self):
         self.assertEqual(self.mockapp_dev_file,
-                         mpobj.projects[self.mockapp_dir])
-        mpobj.load_server(self.mockapp_dir)
-        
+                         self.mpobj.projects[self.mockapp_dir])
