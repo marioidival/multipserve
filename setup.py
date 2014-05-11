@@ -25,7 +25,8 @@ setup(
     scripts=['multipserve/bin/multipserver.py'],
     packages=['multipserve'],
     install_requires=require,
-    test_require=tests_require,
+    tests_require=tests_require,
+    test_suite='tests',
     classifiers=[
         "Development Status :: 4 - Beta",
         "Topic :: Utilities",
