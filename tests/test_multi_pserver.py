@@ -22,7 +22,7 @@ class MultiPserverTest(unittest.TestCase):
         self.assertTrue(len(self.mpobj.projects))
 
     def test_mockdir_in_project(self):
-        self.assertIn(self.mockapp_dir, self.mpobj.projects)
+        assert self.mockapp_dir in self.mpobj.projects  # python 2.6
 
     def test_mock_pastfile_is_returned_by_mps(self):
         self.assertEqual(self.mockapp_dev_file,
