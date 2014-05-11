@@ -1,6 +1,6 @@
 Multi Pserve
 =
-
+[![Build Status](https://travis-ci.org/marioidival/multipserve.svg?branch=master)](https://travis-ci.org/marioidival/multipserve)
 Little script for you use in many pservers Pyramid
 
 
