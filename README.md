@@ -34,7 +34,7 @@ If app killed successfully
 ##To do
 Multi Pserve works but not how I think ... I want it to has a web page or even at the terminal(which I think unlikely/not functional) show the logs of active servers.
 
-Look [issues](https://github.com/marioidival/multi_pserve/issues) for more details.
+Look [issues](https://github.com/marioidival/multipserve/issues) for more details.
 
 1. All application now are loaded in --reload mode
 2. _multipserve_ creates a .log and a .pid files for each application

@@ -21,7 +21,7 @@ setup(
     long_description=README,
     license="BSD",
     keywords="multipserve pyramid threading",
-    url="https://github.com/marioidival/multi_pserve",
+    url="https://github.com/marioidival/multipserve",
     scripts=['multipserve/bin/mpserve'],
     packages=['multipserve'],
     install_requires=require,
