@@ -8,20 +8,20 @@ How To
 
 First, you can use the python script in your root directory for start servers
 
-    multipserver.py --apps app1 app2 app3 app4
+    mpserve --apps app1 app2 app3 app4
 
 
 *app's* are directory of applications
 
 
-After, multipserver create pid and log file with name of each application
+After, multipserve creates pid and log file with name of each application
 
     app1.pid app1.log
 
 
-For kill, you can try this:
+For killing, you can using this:
 
-    multipserver.py (-k|--kill) app1 app2 app3
+    mupserve (-k|--kill) app1 app2 app3
 
 
 If app killed successfully
@@ -39,6 +39,6 @@ Look `issues <https://github.com/marioidival/multi_pserve/issues/>`_  for more d
 
 
 1. All application now are loaded in --reload mode
-#. ``multipserver`` create .log and .pid file for each application
-#. multipserver work with arguments
+#. ``multipserve`` creates a .log and a .pid files for each application
+#. multipserve works with arguments
 #.  ``--apps`` or ``--kill``
