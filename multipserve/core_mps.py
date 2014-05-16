@@ -7,7 +7,7 @@ dev_files = ('dev.ini', 'development.ini')
 kill = os.kill
 
 
-def return_pastfile(directory):
+def return_pastefile(directory):
     """Search by paste file in directory"""
     current_directory = os.path.abspath(directory)
     files_of_directory = os.listdir(current_directory)
@@ -23,7 +23,7 @@ def return_pastfile(directory):
         else:
 
             if current_file not in exclude_directories:
-                return_pastfile(current_file)
+                return_pastefile(current_file)
 
 
 class MultiPserve(object):
@@ -36,7 +36,7 @@ class MultiPserve(object):
         '''Return dict with name application and .ini respective'''
         return_dict = {}
         for directory in self.dir_project:
-            return_dict[directory] = return_pastfile(directory)
+            return_dict[directory] = return_pastefile(directory)
 
         return return_dict
 
