@@ -45,7 +45,7 @@ class MultiPserve(object):
             log_file = '--log-file=' + dir_app + '.log'
             pid_file = '--pid-file=' + dir_app + '.pid'
             Popen(['pserve', self.projects[dir_app], '--reload',
-                  log_file, pid_file], stdout=PIPE, stderr=STDOUT)
+                   log_file, pid_file], stdout=PIPE, stderr=STDOUT)
 
         except Exception as e:
             print e
