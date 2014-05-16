@@ -8,6 +8,7 @@ kill = os.kill
 
 
 def return_pastfile(directory):
+    """Search by paste file in directory"""
     current_directory = os.path.abspath(directory)
     files_of_directory = os.listdir(current_directory)
 
