@@ -49,9 +49,9 @@ class MultiPserve(object):
                    log_file, pid_file], stdout=PIPE, stderr=STDOUT)
 
         except Exception as e:
-            print e
+            print(e)
         else:
-            print 'init server {0}'.format(dir_app)
+            print('init server {0}'.format(dir_app))
 
     def kill_servers(self, apps):
         '''the name says '''
@@ -60,9 +60,9 @@ class MultiPserve(object):
             pid = self.find_read_pid_file(app)
             if pid:
                 kill(pid, signal.SIGTERM)
-                print 'kill {0} with pid {1}'.format(app, pid)
+                print('kill {0} with pid {1}'.format(app, pid))
             else:
-                print 'pid file of {0} not found'.format(app)
+                print('pid file of {0} not found'.format(app))
 
     def find_read_pid_file(self, app_name):
         '''search pid file and get content'''
