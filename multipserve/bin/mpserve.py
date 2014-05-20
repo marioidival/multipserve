@@ -41,6 +41,3 @@ class MPCommand(object):
 def main(argv=sys.argv):
     command = MPCommand(argv)
     return command.run()
-
-if __name__ == "__main__":
-    sys.exit(main() or 0)
