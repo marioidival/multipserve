@@ -6,15 +6,9 @@ root = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(root, 'README.txt')) as f:
     README = f.read()
 
-with open('requirements.txt') as f:
-    require = f.readlines()
-
-with open('tests_requirements.txt') as f:
-    tests_require = f.readlines()
-
 setup(
     name="multipserve",
-    version="1.0.4",
+    version="1.0.6",
     author="Mario Idival",
     author_email="marioidival@gmail.com",
     description=("Script for using with multiples applications Pyramid"),
@@ -23,13 +17,12 @@ setup(
     keywords="multipserve pyramid threading",
     url="https://github.com/marioidival/multipserve",
     packages=['multipserve'],
-    install_requires=require,
-    tests_require=tests_require,
+    install_requires=[],
+    tests_require=['nose', 'coverage'],
     test_suite='tests',
-    entry_points="""
-    [console_scripts]
-    mpserve = multipserve.bin.mpserve:main
-    """,
+    entry_points={
+        'console_scripts': ['mpserve=multipserve.mpserve:main']
+    },
     classifiers=[
         "Development Status :: 4 - Beta",
         "Topic :: Utilities",
