@@ -3,7 +3,7 @@ from setuptools import setup
 
 root = os.path.abspath(os.path.dirname(__file__))
 
-with open(os.path.join(root, 'README.txt')) as f:
+with open(os.path.join(root, 'README.rst')) as f:
     README = f.read()
 
 setup(
